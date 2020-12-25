@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { RecoilRoot } from 'recoil';
+import App from './routers';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { SocketIOWrapper } from './components/socket-io-wrapper.component';
+import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <React.Fragment>
+    <RecoilRoot>
+      <SocketIOWrapper>
+        <App />
+      </SocketIOWrapper>
+    </RecoilRoot>
+  </React.Fragment>,
   document.getElementById('root')
 );
 
